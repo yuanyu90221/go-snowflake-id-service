@@ -7,7 +7,7 @@ This is a snowflake-id service implemented by golang
 A distributed monotone incremented Identifier generate algorithm
 
 ## format
-
+| timestamp       | shardId        |  seqId     |               
 |-----------------|----------------|------------|
 | timestamp difference in millisecond(41bit) | shardId(10bit)| seqId(12bit)|
 
