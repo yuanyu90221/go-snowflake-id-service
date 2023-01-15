@@ -67,3 +67,9 @@ func (s *Shard) NextID() int64 {
 ```shell
 go run test -v ./... --race
 ```
+
+## benchmark test
+
+```shell
+go test -benchmem -run=none -bench ^BenchmarkTest$ github.com/yuanyu90221/go-snowflake-id-service/test --race
+```
