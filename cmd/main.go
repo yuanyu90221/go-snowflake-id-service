@@ -1,15 +1,14 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"time"
 
 	"github.com/yuanyu90221/go-snowflake-id-service/snowflake"
 )
 
 func main() {
-	currentDate := time.Now().UTC().UnixMilli()
-	currentDate -= 30000
+	currentDate := time.Now().UTC().UnixMilli() - 30000
 	txShardId := 0
 	orderShardId := 1
 	snowFlakeTx, _ := snowflake.NewShard(int64(txShardId), int64(currentDate))
@@ -17,7 +16,7 @@ func main() {
 	for i := 0; i < 100000; i++ {
 		txId := snowFlakeTx.NextID()
 		orderId := snowFlakeOrder.NextID()
-		fmt.Printf("txId: %v\t", txId)
-		fmt.Printf("orderId: %v\n", orderId)
+		log.Printf("txId: %v\t", txId)
+		log.Printf("orderId: %v\n", orderId)
 	}
 }
